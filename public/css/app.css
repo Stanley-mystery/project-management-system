@@ -17,7 +17,6 @@ li {
 :root {
 	--poppins: 'Poppins', sans-serif;
 	--lato: 'Lato', sans-serif;
-
 	--light: #F9F9F9;
 	--blue: #3C91E6;
 	--light-blue: #CFE8FF;
@@ -46,7 +45,9 @@ body {
 	overflow-x: hidden;
 }
 
-
+a{
+	text-decoration: none !important;
+}
 
 
 
@@ -272,6 +273,7 @@ body {
 	align-items: center;
 }
 #content nav .profile img {
+	margin-left: 5px;
 	width: 36px;
 	height: 36px;
 	object-fit: cover;
@@ -331,6 +333,7 @@ body {
 	display: flex;
 	align-items: center;
 	grid-gap: 16px;
+	background-color: transparent !important;
 }
 #content main .head-title .left .breadcrumb li {
 	color: var(--dark);
@@ -492,6 +495,7 @@ body {
 }
 #content main .table-data .todo .todo-list {
 	width: 100%;
+
 }
 #content main .table-data .todo .todo-list li {
 	width: 100%;
@@ -521,11 +525,6 @@ body {
 
 
 
-
-
-
-
-
 @media screen and (max-width: 768px) {
 	#sidebar {
 		width: 200px;
@@ -533,7 +532,7 @@ body {
 
 	#content {
 		width: calc(100% - 60px);
-		left: 200px;
+		left: 20px;
 	}
 
 	#content nav .nav-link {
@@ -543,50 +542,12 @@ body {
 
 
 
-
-
-
-@media screen and (max-width: 576px) {
-	#content nav form .form-input input {
-		display: none;
-	}
-
-	#content nav form .form-input button {
-		width: auto;
-		height: auto;
-		background: transparent;
-		border-radius: none;
-		color: var(--dark);
-	}
-
-	#content nav form.show .form-input input {
-		display: block;
-		width: 100%;
-	}
-	#content nav form.show .form-input button {
-		width: 36px;
-		height: 100%;
-		border-radius: 0 36px 36px 0;
-		color: var(--light);
-		background: var(--red);
-	}
-
-	#content nav form.show ~ .notification,
-	#content nav form.show ~ .profile {
-		display: none;
-	}
-
-	#content main .box-info {
-		grid-template-columns: 1fr;
-	}
-
-	#content main .table-data .head {
-		min-width: 420px;
-	}
-	#content main .table-data .order table {
-		min-width: 420px;
-	}
-	#content main .table-data .todo .todo-list {
-		min-width: 420px;
-	}
+.profile-name {
+	color: var(--dark);
 }
+
+.footer{
+	color: var(--dark);
+}
+
+
