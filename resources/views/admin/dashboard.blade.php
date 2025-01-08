@@ -3,7 +3,7 @@
 
 <div class="head-title">
     <div class="left">
-        <h1>Dashboard</h1>
+        <h1>ADMIN</h1>
         <ul class="breadcrumb">
             <li>
                 <a href="#">Dashboard</a>

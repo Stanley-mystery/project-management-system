@@ -28,8 +28,8 @@ class RoleSeeder extends Seeder
     ]);
 
     Role::create([
-        'name' => 'Developer',
-        'slug' => 'developer',
+        'name' => 'Staff',
+        'slug' => 'staff',
         'description' => 'Works on assigned tasks and projects',
     ]);
     }

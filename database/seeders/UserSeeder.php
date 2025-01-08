@@ -33,13 +33,13 @@ class UserSeeder extends Seeder
             'role_id' => $projectManagerRole->id,
         ]);
 
-        // Create a developer user
-        $developerRole = Role::where('slug', 'developer')->first();
+        // Create a staff user
+        $staffRole = Role::where('slug', 'staff')->first();
         User::create([
             'name' => 'Stanley Nwogu',
             'email' => 'Stanley@gmail.com',
             'password' => Hash::make('dev_password'),
-            'role_id' => $developerRole->id,
+            'role_id' => $staffRole->id,
         ]);
     }
 }
