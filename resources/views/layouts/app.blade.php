@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/themify-icons/0.1.0/css/themify-icons.css">
   
     <!-- Phosphor Icons (Duotone) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@latest" />
+    {{--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@latest" />  --}}
   
     <!-- Tabler Icons -->
     <link href="https://cdn.jsdelivr.net/npm/tabler-icons@1.39.0/iconfont/tabler-icons.min.css" rel="stylesheet">
@@ -51,11 +51,11 @@
 
   <body data-pc-preset="preset-1" data-pc-sidebar-theme="light" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
     <!-- [ Pre-loader ] start -->
-<div class="loader-bg">
+{{--  <div class="loader-bg">
   <div class="loader-track">
     <div class="loader-fill"></div>
   </div>
-</div>
+</div>  --}}
 <!-- [ Pre-loader ] End -->
  <!-- [ Sidebar Menu ] start -->
 <nav class="pc-sidebar">
@@ -63,7 +63,7 @@
     <div class="m-header">
       <a href="../dashboard/index.html" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
-        <img src="{{ asset('images/cart-logo.png') }}" alt="logo image" class="logo-lg" />
+        <i class="bi bi-cart fs-1"></i><span class="fw-bold">Discountz</span>
       </a>
     </div>
     <div class="navbar-content">
@@ -436,8 +436,8 @@
         </div>
       </div>
     </li>
-    <li class="dropdown pc-h-item header-user-profile">
-      <a
+  <li class="dropdown pc-h-item header-user-profile">
+    <a
         class="pc-head-link dropdown-toggle arrow-none me-0"
         data-bs-toggle="dropdown"
         href="#"
@@ -445,100 +445,68 @@
         aria-haspopup="false"
         data-bs-auto-close="outside"
         aria-expanded="false"
-      >
-        <img src="{{ asset('images/avatar.png') }}"  alt="user-image" class="user-avtar" />
-      </a>
-      <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
+    >
+        <img src="{{ asset('images/avatar.png') }}" alt="user-image" class="user-avtar" />
+    </a>
+    <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
         <div class="dropdown-header d-flex align-items-center justify-content-between">
-          <h5 class="m-0">Profile</h5>
+            <h5 class="m-0">Profile</h5>
         </div>
         <div class="dropdown-body">
-          <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
-            <ul class="list-group list-group-flush w-100">
-              <li class="list-group-item">
-                <div class="d-flex align-items-center">
-                  <div class="flex-shrink-0">
-                    <img src="{{ asset('images/avatar.png') }}" alt="user-image" class="wid-50 rounded-circle" />
-                  </div>
-                  <div class="flex-grow-1 mx-3">
-                    <h5 class="mb-0">Carson Darrin</h5>
-                    <a class="link-primary" href="mailto:carson.darrin@company.io">carson.darrin@company.io</a>
-                  </div>
-                  <span class="badge bg-primary">PRO</span>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <a href="#" class="dropdown-item">
-                  <span class="d-flex align-items-center">
-                    <i class="ph-duotone ph-key"></i>
-                    <span>Change password</span>
-                  </span>
-                </a>
-              
-              
-              </li>
-              <li class="list-group-item">
-                <a href="#" class="dropdown-item">
-                  <span class="d-flex align-items-center">
-                    <i class="ph-duotone ph-heart"></i>
-                    <span>Favorite</span>
-                  </span>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <span class="d-flex align-items-center">
-                    <i class="ph-duotone ph-arrow-circle-down"></i>
-                    <span>Download</span>
-                  </span>
-                  <span class="avtar avtar-xs rounded-circle bg-danger text-white">10</span>
-                </a>
-              </li>
-        
-              <li class="list-group-item">
-                <a href="#" class="dropdown-item">
-                  <span class="d-flex align-items-center">
-                    <i class="ph-duotone ph-user-circle"></i>
-                    <span>Edit profile</span>
-                  </span>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <span class="d-flex align-items-center">
-                    <i class="ph-duotone ph-star text-warning"></i>
-                    <span>Upgrade account</span>
-                    <span class="badge bg-light-success border border-success ms-2">NEW</span>
-                  </span>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <span class="d-flex align-items-center">
-                    <i class="ph-duotone ph-bell"></i>
-                    <span>Notifications</span>
-                  </span>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <span class="d-flex align-items-center">
-                    <i class="ph-duotone ph-gear-six"></i>
-                    <span>Settings</span>
-                  </span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#" class="dropdown-item">
-                  <span class="d-flex align-items-center">
-                    <i class="ph-duotone ph-plus-circle"></i>
-                    <span>Add account</span>
-                  </span>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <span class="d-flex align-items-center">
-                    <i class="ph-duotone ph-power"></i>
-                    <span>Logout</span>
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
+            <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
+                <ul class="list-group list-group-flush w-100">
+                    <li class="list-group-item">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <img src="{{ asset('images/avatar.png') }}" alt="user-image" class="wid-50 rounded-circle" />
+                            </div>
+                            <div class="flex-grow-1 mx-3">
+                                <h5 class="mb-0">Carson Darrin</h5>
+                                <a class="link-primary" href="mailto:carson.darrin@company.io">carson.darrin@company.io</a>
+                            </div>
+                            <span class="badge bg-primary">PRO</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="dropdown-item">
+                            <span class="d-flex align-items-center">
+                                <i class="bi bi-key"></i>
+                                <span>Change password</span>
+                            </span>
+                        </a>
+                             <a href="#" class="dropdown-item">
+                            <span class="d-flex align-items-center">
+                                <i class="bi bi-person-circle"></i>
+                                <span>Edit profile</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="dropdown-item">
+                            <span class="d-flex align-items-center">
+                                <i class="bi bi-heart"></i>
+                                <span>Favorite</span>
+                            </span>
+                             <span class="avtar avtar-xs rounded-circle bg-danger text-white">10</span>
+                        </a>
+                    
+                    </li>
+                   
+                    <li class="list-group-item">
+                   
+                        <a href="#" class="dropdown-item">
+                            <span class="d-flex align-items-center">
+                                <i class="bi bi-power"></i>
+                                <span>Logout</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </li>
+    </div>
+</li>
+
   </ul>
 </div>
  </div>
@@ -668,16 +636,9 @@ s
    <!-- Bootstrap JS (optional for interactivity) -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.0/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-<script src="{{ asset('js/plugins/popper.min.js') }}"></script>
-<script src="{{ asset('js/plugins/simplebar.min.js') }}"></script>
-<script src="{{ asset('js/plugins/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/plugins/i18next.min.js') }}"></script>
-<script src="{{ asset('js/plugins/i18nextHttpBackend.min.js') }}"></script>
-<script src="{{ asset('js/icon/custom-font.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script> <!-- Correct syntax used -->
 <script src="{{ asset('js/theme.js') }}"></script>
-<script src="{{ asset('js/multi-lang.js') }}"></script>
-<script src="{{ asset('js/plugins/feather.min.js') }}"></script>
+
 
 
    
@@ -707,13 +668,13 @@ s
 
 
     <!-- [Page Specific JS] start -->
-    <script>
+    {{--  <script>
       // scroll-block
       var tc = document.querySelectorAll('.scroll-block');
       for (var t = 0; t < tc.length; t++) {
         new SimpleBar(tc[t]);
       }
-    </script>
+    </script>  --}}
     <!-- [Page Specific JS] end -->
     <div class="offcanvas border-0 pct-offcanvas offcanvas-end" tabindex="-1" id="offcanvas_pc_layout">
       <div class="offcanvas-header justify-content-between">

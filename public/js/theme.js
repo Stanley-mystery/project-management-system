@@ -72,10 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Initialize SimpleBar if .pct-body exists
-  const pctBody = document.querySelector('.pct-body');
-  if (pctBody) {
-    new SimpleBar(pctBody);
-  }
+  // const pctBody = document.querySelector('.pct-body');
+  // if (pctBody) {
+  //   new SimpleBar(pctBody);
+  // }
 
   // Handle layout reset
   const layoutResetBtn = document.querySelector('#layoutreset');
