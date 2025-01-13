@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
     |
     */
 
-class ProjectManagerController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display the project manager dashboard.
@@ -24,6 +24,6 @@ class ProjectManagerController extends Controller
      */
     public function index()
     {
-        return view('project_manager.dashboard');
+        return view('client.dashboard');
     }
 }

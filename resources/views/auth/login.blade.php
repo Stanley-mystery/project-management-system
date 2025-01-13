@@ -1,76 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.auth')
 
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card p-4 shadow-sm">
-                <h2 class="text-center mb-4">Login</h2>
-                <form action="{{ route('login') }}" method="POST">
-                    @csrf
+@section('content')
 
-                    <!-- Email Field -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" required>
-                        <!-- Error message for email -->
-                        @error('email')
-                            <div class="invalid-feedback d-flex align-items-center justify-content-start">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Password Field -->
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" id="password" class="form-control  @error('password') is-invalid @enderror" required>
-                        <!-- Error message for password -->
-                        @error('password')
-                            <div class="invalid-feedback d-flex align-items-center justify-content-start">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Remember Me Checkbox -->
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" name="remember" id="remember" class="form-check-input">
-                        <label for="remember" class="form-check-label">Remember me</label>
-                    </div>
-
-                 
-                    <!-- Display any general session errors -->
-                    @if(session('error'))
-                        <div class="alert alert-danger">
-                            <p>{{ session('error') }}</p>
+    <div class="auth-main v1">
+        <div class="auth-wrapper">
+            <div class="auth-form">
+                <div class="card my-5">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <img src="{{ asset('images/img-auth-login.png') }}" alt="images" class="img-fluid mb-3" />
+                            <h4 class="f-w-500 mb-1">Login with your email</h4>
+                            <p class="mb-3">Don't have an Account? <a href="{{ route('register') }}" class="link-primary ms-1">Create Account</a></p>
                         </div>
-                    @endif
-
-                    <!-- Login Button -->
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <!-- Laravel Form Start -->
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="mb-3">
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="floatingInput" placeholder="Email Address" value="{{ old('email') }}" />
+                                @error('email')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="floatingInput1" placeholder="Password" />
+                                @error('password')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="d-flex mt-1 justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <input class="form-check-input input-primary" type="checkbox" name="remember" id="customCheckc1" {{ old('remember') ? 'checked' : '' }} />
+                                    <label class="form-check-label text-muted" for="customCheckc1">Remember me?</label>
+                                </div>
+                                <a href="{{ route('password.request') }}"><h6 class="f-w-400 mb-0">Forgot Password?</h6></a>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                            <div class="saprator my-3">
+                                <span>Or continue with</span>
+                            </div>
+                            <div class="text-center">
+                                <ul class="list-inline mx-auto mt-3 mb-0">
+                                    <li class="list-inline-item">
+                                        <a href="https://myaccount.google.com/" class="avtar avtar-s rounded-circle bg-googleplus" target="_blank">
+                                            <i class="fab fa-google text-white"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                        <!-- Laravel Form End -->
                     </div>
-
-                    <!-- Forgot Password Link -->
-                    <div class="text-center mt-3">
-                        <a href="#" class="text-decoration-none">Forgot your password?</a>
-                    </div>
-
-                    <!-- Sign Up Link -->
-                    <div class="text-center mt-3">
-                        <p>Don't have an account?</p>
-                        <a href="#" class="btn btn-outline-primary">Sign Up</a>
-                    </div>
-                </form>
+                </div>
             </div>
+            {{--  <div class="auth-sidefooter">
+                <img src="{{ asset('assets/images/logo-dark.svg') }}" class="img-brand img-fluid" alt="images" />
+                <hr class="mb-3 mt-4" />
+                <div class="row">
+                    <div class="col my-1">
+                        <p class="m-0">Made with ♥ by Team <a href="https://themeforest.net/user/phoenixcoded" target="_blank"> Phoenixcoded</a></p>
+                    </div>
+                    <div class="col-auto my-1">
+                        <ul class="list-inline footer-link mb-0">
+                            <li class="list-inline-item"><a href="{{ url('/') }}">Home</a></li>
+                            <li class="list-inline-item"><a href="https://pcoded.gitbook.io/light-able/" target="_blank">Documentation</a></li>
+                            <li class="list-inline-item"><a href="https://phoenixcoded.support-hub.io/" target="_blank">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  --}}
         </div>
     </div>
-
-    <!-- Bootstrap JS (Optional for enhanced interactivity) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    
+@endsection

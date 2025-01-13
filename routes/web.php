@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProjectManagerController;
+use App\Http\Controllers\SellerController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,17 +25,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'auth'], function () {
     // Authentication Routes
-    Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
-    Route::post('login', [AuthController::class, 'login'])->name('login');
-    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [LoginController::class, 'login'])->name('login');
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     
     // Password Reset Routes
-    Route::get('forgot-password', [AuthController::class, 'showForgotPasswordForm'])->name('password.request');
-    Route::post('password/email', [AuthController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::get('forgot-password', [LoginController::class, 'showForgotPasswordForm'])->name('password.request');
+    Route::post('password/email', [LoginController::class, 'sendResetLinkEmail'])->name('password.email');
     
     // Registration Routes
-    Route::get('register', [AuthController::class, 'showRegistrationForm'])->name('register');
-    Route::post('register', [AuthController::class, 'register']);
+    Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('register', [RegisterController::class, 'register']);
 });
 
 Route::get('/', function () {
@@ -45,13 +49,13 @@ Route::group(['middleware' => ['role:admin'], 'prefix' => 'admin'], function () 
 });
 
 // Project Manager Routes
-Route::group(['middleware' => ['role:project_manager'], 'prefix' => 'project-manager'], function () {
-    Route::get('/dashboard', [ProjectManagerController::class, 'index'])->name('project_manager.dashboard');
+Route::group(['middleware' => ['role:client'], 'prefix' => 'client'], function () {
+    Route::get('/dashboard', [ClientController::class, 'index'])->name('client.dashboard');
  
 });
 
 // Staff Routes (e.g., Developer)
-Route::group(['middleware' => ['role:staff'], 'prefix' => 'staff'], function () {
-    Route::get('/dashboard', [StaffController::class, 'index'])->name('staff.dashboard');
+Route::group(['middleware' => ['role:seller'], 'prefix' => 'staff'], function () {
+    Route::get('/dashboard', [SellerController::class, 'index'])->name('seller.dashboard');
   
 });

@@ -22,15 +22,15 @@ class RoleSeeder extends Seeder
     ]);
 
     Role::create([
-        'name' => 'Project Manager',
-        'slug' => 'project_manager',
-        'description' => 'Manages projects, tasks, and team members',
+        'name' => 'Client',
+        'slug' => 'client',
+        'description' => 'Can make purchases and view content',
     ]);
 
     Role::create([
-        'name' => 'Staff',
-        'slug' => 'staff',
-        'description' => 'Works on assigned tasks and projects',
+        'name' => 'Seller',
+        'slug' => 'seller',
+        'description' => 'Can make Sales, post and view content',
     ]);
     }
 }

@@ -20,26 +20,26 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Femi Taiwo',
             'email' => 'femi@gmail.com',
-            'password' => Hash::make('admin_password'), // Always hash passwords
+            'password' => Hash::make('admin_password'), 
             'role_id' => $adminRole->id,
         ]);
 
         // Create a project manager user
-        $projectManagerRole = Role::where('slug', 'project_manager')->first();
+        $clientRole = Role::where('slug', 'client')->first();
         User::create([
             'name' => 'Victor Nwogu',
             'email' => 'victor@gmail.com',
-            'password' => Hash::make('pm_password'),
-            'role_id' => $projectManagerRole->id,
+            'password' => Hash::make('user_password'),
+            'role_id' => $clientRole->id,
         ]);
 
         // Create a staff user
-        $staffRole = Role::where('slug', 'staff')->first();
+        $sellerRole = Role::where('slug', 'seller')->first();
         User::create([
             'name' => 'Stanley Nwogu',
             'email' => 'Stanley@gmail.com',
-            'password' => Hash::make('dev_password'),
-            'role_id' => $staffRole->id,
+            'password' => Hash::make('user_password'),
+            'role_id' => $sellerRole->id,
         ]);
     }
 }
