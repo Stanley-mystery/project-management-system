@@ -49,4 +49,25 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class);
     }
+
+
+      /**
+     * Relationship between user and reviews
+     * A user can have many reviews.
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+ /**
+ * Relationship between user and favorite products
+ * A user can have many favorite products.
+ */
+public function favoriteProducts()
+{
+    return $this->belongsToMany(Product::class, 'favorites');
+}
+
+
 }

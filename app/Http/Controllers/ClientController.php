@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
     |--------------------------------------------------------------------------
@@ -17,6 +20,18 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+   
+    protected $productService;
+
+    // Inject the ProductService into the controller
+    public function __construct(ProductService $productService)
+    {
+        $this->productService = $productService;
+    }
+
+    
+
+
     /**
      * Display the project manager dashboard.
      *
@@ -24,6 +39,14 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('client.dashboard');
+
+        $products = $this->productService->getProductsWithReviewsAndCategory();
+    
+        $favoriteProductIds = $this->productService->getFavoriteProduct();
+    
+        // Pass the products and favorite product IDs to the view
+        return view('client.dashboard', compact('products', 'favoriteProductIds'));
     }
+
+     
 }

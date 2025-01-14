@@ -16,6 +16,7 @@
 
     <!-- [Favicon] Icon -->
     <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <!-- [Google Font: Public Sans] (Optional, not included in your current code) -->
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -74,51 +75,46 @@
         </li>
         <li class="pc-item pc-hasmenu">
           <a href="#!" class="pc-link">
-            <span class="pc-micon">
-              <i class="ph-duotone ph-gauge"></i>
+            <span class="pc-micon mb-2">
+              <i class="bi bi-house-door"></i>
             </span>
             <span class="pc-mtext" data-i18n="Dashboard">Dashboard</span>
             <span class="pc-arrow"><i class="bi bi-chevron-right"></i></span>
-            <span class="pc-badge">2</span>
+           
           </a>
           <ul class="pc-submenu">
             <li class="pc-item"><a class="pc-link" href="../dashboard/index.html" data-i18n="Analytics">Analytics</a></li>
-            <li class="pc-item"><a class="pc-link" href="../dashboard/affiliate.html" data-i18n="Affiliate">Affiliate</a></li>
-            <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html" data-i18n="Finance">Finance</a></li>
-            <li class="pc-item"><a class="pc-link" href="../admins/helpdesk-dashboard.html" data-i18n="Helpdesk">Helpdesk</a></li>
-            <li class="pc-item"><a class="pc-link" href="../dashboard/invoice.html" data-i18n="Invoice">Invoice</a></li>
+            <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html" data-i18n="Finance">Products</a></li>
           </ul>
         </li>
      
      
         <li class="pc-item pc-hasmenu">
           <a href="#!" class="pc-link">
-            <span class="pc-micon">
-              <i class="ph-duotone ph-image"></i>
+            <span class="pc-micon mb-2">
+              <i class="bi bi-activity"></i>
             </span>
-            <span class="pc-mtext" data-i18n="Gallery">Gallery</span><span class="pc-arrow"><i class="bi bi-chevron-right"></i></span
+            <span class="pc-mtext" data-i18n="Gallery">Activities</span><span class="pc-arrow"><i class="bi bi-chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/gallery-grid.html" data-i18n="Grid">Grid</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/gallery-masonry.html" data-i18n="Masonry">Masonry</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/gallery-grid.html" data-i18n="Grid">Likes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/gallery-grid.html" data-i18n="Grid">Reviews</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/gallery-masonry.html" data-i18n="Masonry">Wishlist</a></li>
           </ul>
         </li>
-    
         <li class="pc-item pc-hasmenu">
-          <a href="#!" class="pc-link"
-            ><span class="pc-micon"><i class="ph-duotone ph-newspaper"></i></span><span class="pc-mtext" data-i18n="Invoice 2">Invoice 2</span
-            ><span class="pc-arrow"><i class="bi bi-chevron-right"></i></span
+          <a href="#!" class="pc-link">
+            <span class="pc-micon mb-2">
+              <i class="bi bi-person-gear"></i>
+            </span>
+            <span class="pc-mtext" data-i18n="Gallery">Account</span><span class="pc-arrow"><i class="bi bi-chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../admins/invoice-dashboard.html" data-i18n="Dashboard">Dashboard</a></li>
-            <li class="pc-item"><a class="pc-link" href="../admins/invoice-create.html" data-i18n="Create">Create</a></li>
-            <li class="pc-item"><a class="pc-link" href="../admins/invoice-view.html" data-i18n="Details">Details</a></li>
-            <li class="pc-item"><a class="pc-link" href="../admins/invoice-list.html" data-i18n="List">List</a></li>
-            <li class="pc-item"><a class="pc-link" href="../admins/invoice-edit.html" data-i18n="Edit">Edit</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/gallery-grid.html" data-i18n="Grid">Profile</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/gallery-masonry.html" data-i18n="Masonry">Payment History</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/gallery-masonry.html" data-i18n="Masonry">Chats <span class="pc-badge">2</span></a></li>
           </ul>
         </li>
-     
-   
       </ul>
       <div class="card nav-action-card bg-brand-color-4">
         <div class="card-body" style="background-image: url('../assets/images/layout/nav-card-bg.svg')">
@@ -139,8 +135,8 @@
                         <a href="#" class="arrow-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1 me-2">
-                                    <h6 class="mb-0">Jonh Smith</h6>
-                                    <small>Administrator</small>
+                                    <h6 class="mb-0">{{ ucfirst(strtolower(auth()->user()->name)) }}</h6>
+                                    <small>{{ auth()->user()->role->name }}</small>
                                 </div>
                                 <div class="flex-shrink-0">
                                     <div class="btn btn-icon btn-link-secondary avtar">
@@ -150,29 +146,21 @@
                             </div>
                         </a>
                         <div class="dropdown-menu">
+                          <div class="dropdown-header">
+                            <strong class="d-flex align-items-center justify-content-between w-100">Switch Accounts</strong>
+                        </div>
                             <ul>
+                              <li>
+                                <a class="pc-user-links">
+                                  <i class="bi bi-currency-exchange"></i>
+                                    <span>Seller</span>
+                                </a>
+                            </li>
+                             
                                 <li>
                                     <a class="pc-user-links">
-                                        <i class="bi bi-person"></i>
-                                        <span>My Account</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="pc-user-links">
-                                        <i class="bi bi-gear"></i>
-                                        <span>Settings</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="pc-user-links">
-                                        <i class="bi bi-lock"></i>
-                                        <span>Lock Screen</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="pc-user-links">
-                                        <i class="bi bi-power"></i>
-                                        <span>Logout</span>
+                                      <i class="bi bi-bag-fill"></i>
+                                        <span>Client</span>
                                     </a>
                                 </li>
                             </ul>
@@ -275,8 +263,8 @@
             </li>
           </ul>
         </div>
-        <div class="dropdown-body text-wrap header-notification-scroll position-relative" style="max-height: calc(100vh - 235px)">
-          <ul class="list-group list-group-flush">
+        <div class="dropdown-body  text-wrap header-notification-scroll position-relative" style="max-height: calc(100vh - 235px)">
+          <ul class="list-group scroll-block list-group-flush">
             <li class="list-group-item">
               <p class="text-span">Today</p>
               <div class="d-flex">
@@ -445,10 +433,10 @@
         aria-haspopup="false"
         data-bs-auto-close="outside"
         aria-expanded="false"
-    >
+         >
         <img src="{{ asset('images/avatar.png') }}" alt="user-image" class="user-avtar" />
     </a>
-    <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
+  <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
         <div class="dropdown-header d-flex align-items-center justify-content-between">
             <h5 class="m-0">Profile</h5>
         </div>
@@ -461,10 +449,10 @@
                                 <img src="{{ asset('images/avatar.png') }}" alt="user-image" class="wid-50 rounded-circle" />
                             </div>
                             <div class="flex-grow-1 mx-3">
-                                <h5 class="mb-0">Carson Darrin</h5>
-                                <a class="link-primary" href="mailto:carson.darrin@company.io">carson.darrin@company.io</a>
+                                <h5 class="mb-0">{{ ucfirst(strtolower(auth()->user()->name)) }}</h5>
+                                <a class="link-primary" href="mailto:carson.darrin@company.io">{{ auth()->user()->email}}</a>
                             </div>
-                            <span class="badge bg-primary">PRO</span>
+                            <span class="badge bg-primary">{{ auth()->user()->role->name}}</span>
                         </div>
                     </li>
                     <li class="list-group-item">
@@ -480,16 +468,6 @@
                                 <span>Edit profile</span>
                             </span>
                         </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" class="dropdown-item">
-                            <span class="d-flex align-items-center">
-                                <i class="bi bi-heart"></i>
-                                <span>Favorite</span>
-                            </span>
-                             <span class="avtar avtar-xs rounded-circle bg-danger text-white">10</span>
-                        </a>
-                    
                     </li>
                    
                     <li class="list-group-item">
@@ -507,7 +485,7 @@
     </div>
 </li>
 
-  </ul>
+</ul>
 </div>
  </div>
 </header>
@@ -543,92 +521,15 @@ s
       
       </div>
     </div>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="productOffcanvas" aria-labelledby="productOffcanvasLabel">
-      <div class="offcanvas-header align-items-center justify-content-between">
-        <h5 class="offcanvas-title" id="productOffcanvasLabel">Product Details</h5>
-        <a href="#" class="avtar avtar-s btn-link-danger btn-pc-default" data-bs-dismiss="offcanvas">
-          <i class="ti ti-x f-20"></i>
-        </a>
-      </div>
-      <div class="offcanvas-body">
-        <div class="card product-card shadow-none border-0">
-          <div class="card-img-top p-0">
-            <a href="../application/ecom_product-details.html">
-              <img src="../assets/images/application/img-prod-4.jpg" alt="image" class="img-prod img-fluid" />
-            </a>
-            <div class="card-body position-absolute end-0 top-0">
-              <div class="form-check prod-likes">
-                <input type="checkbox" class="form-check-input" />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-heart prod-likes-icon"
-                >
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <div class="card-body position-absolute start-0 top-0">
-              <span class="badge bg-danger badge-prod-card">30%</span>
-            </div>
-          </div>
-        </div>
-        <h5>Glitter gold Mesh Walking Shoes</h5>
-        <p class="text-muted"
-          >Image Enlargement: After shooting, you can enlarge photographs of the objects for clear zoomed view. Change In Aspect Ratio:
-          Boldly crop the subject and save it with a composition that has impact.</p
-        >
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item px-0">
-            <div class="d-inline-flex align-items-center justify-content-between w-100">
-              <p class="mb-0 text-muted me-1">Price</p>
-              <h4 class="mb-0"><b>$299.00</b><span class="mx-2 f-14 text-muted f-w-400 text-decoration-line-through">$399.00</span></h4>
-            </div>
-          </li>
-          <li class="list-group-item px-0">
-            <div class="d-inline-flex align-items-center justify-content-between w-100">
-              <p class="mb-0 text-muted me-1">Categories</p>
-              <h6 class="mb-0">Shoes</h6>
-            </div>
-          </li>
-          <li class="list-group-item px-0">
-            <div class="d-inline-flex align-items-center justify-content-between w-100">
-              <p class="mb-0 text-muted me-1">Status</p>
-              <h6 class="mb-0"><span class="badge bg-warning rounded-pill">Process</span></h6>
-            </div>
-          </li>
-          <li class="list-group-item px-0">
-            <div class="d-inline-flex align-items-center justify-content-between w-100">
-              <p class="mb-0 text-muted me-1">Brands</p>
-              <h6 class="mb-0"><img src="../assets/images/application/img-prod-brand-1.png" alt="user-image" class="wid-40" /></h6>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+  
     <!-- [ Main Content ] end -->
     <footer class="pc-footer">
       <div class="footer-wrapper container-fluid">
         <div class="row">
           <div class="col-sm-6 my-1">
-            <p class="m-0">Made with &#9829; by Team <a href="https://themeforest.net/user/phoenixcoded" target="_blank"> Phoenixcoded</a></p>
+            <p class="m-0">Made by &#9829; <a href="# target="_blank">Stanley</a></p>
           </div>
-          <div class="col-sm-6 ms-auto my-1">
-            <ul class="list-inline footer-link mb-0 justify-content-sm-end d-flex">
-              <li class="list-inline-item"><a href="../index.html">Home</a></li>
-              <li class="list-inline-item"><a href="https://pcoded.gitbook.io/light-able/" target="_blank">Documentation</a></li>
-              <li class="list-inline-item"><a href="https://phoenixcoded.support-hub.io/" target="_blank">Support</a></li>
-            </ul>
-          </div>
+       
         </div>
       </div>
     </footer>
@@ -667,14 +568,7 @@ s
 </script>
 
 
-    <!-- [Page Specific JS] start -->
-    {{--  <script>
-      // scroll-block
-      var tc = document.querySelectorAll('.scroll-block');
-      for (var t = 0; t < tc.length; t++) {
-        new SimpleBar(tc[t]);
-      }
-    </script>  --}}
+ 
     <!-- [Page Specific JS] end -->
     <div class="offcanvas border-0 pct-offcanvas offcanvas-end" tabindex="-1" id="offcanvas_pc_layout">
       <div class="offcanvas-header justify-content-between">

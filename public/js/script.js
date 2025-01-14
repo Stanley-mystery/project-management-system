@@ -13,187 +13,193 @@ Description:  this file will contains behavior, properties,
 */
 
 'use strict';
-var flg = '0';
-// document.addEventListener('DOMContentLoaded', function () {
-//   // feather icon start
-//   feather.replace();
-//   // feather icon end
-
-//   // remove pre-loader start
-//   setTimeout(function () {
-//     var loaderBg = document.querySelector('.loader-bg');
-//     if (loaderBg) {
-//       loaderBg.remove();
-//     }
-//   }, 400);
-
-//   // remove pre-loader end
-//   if (document.body.hasAttribute('data-pc-layout') && document.body.getAttribute('data-pc-layout') === 'horizontal') {
-//     if (window.innerWidth <= 1024) {
-//       add_scroller();
-//     }
-//   } else {
-//     add_scroller();
-//   }
-
-//   var hamburger = document.querySelector('.hamburger');
-//   if (hamburger && !hamburger.classList.contains('is-active')) {
-//     hamburger.addEventListener('click', function () {
-//       // Toggle the 'is-active' class
-//       hamburger.classList.toggle('is-active');
-//     });
-//   }
-
-//   // Menu overlay layout start
-//   var temp_overlay_menu = document.querySelector('#overlay-menu');
-//   if (temp_overlay_menu) {
-//     temp_overlay_menu.addEventListener('click', function () {
-//       var pcSidebar = document.querySelector('.pc-sidebar');
-//       menu_click(); // Assuming this initializes any menu interactions needed
-
-//       if (pcSidebar.classList.contains('pc-over-menu-active')) {
-//         remove_overlay_menu();
-//       } else {
-//         pcSidebar.classList.add('pc-over-menu-active');
-
-//         // Check if overlay already exists before adding
-//         if (!document.querySelector('.pc-menu-overlay')) {
-//           pcSidebar.insertAdjacentHTML('beforeend', '<div class="pc-menu-overlay"></div>');
-
-//           // Add event listener to the overlay for removing menu and overlay on click
-//           document.querySelector('.pc-menu-overlay').addEventListener('click', function () {
-//             remove_overlay_menu();
-//             document.querySelector('.hamburger').classList.remove('is-active'); // Ensuring hamburger is deactivated
-//           });
-//         }
-//       }
-//     });
-//   }
-//   // Menu overlay layout end
-
-
-// 
-
-
-//   // Menu collapse click start
-//   var mobile_collapse_over = document.querySelector('#mobile-collapse');
-//   if (mobile_collapse_over) {
-//     mobile_collapse_over.addEventListener('click', function () {
-//       var temp_sidebar = document.querySelector('.pc-sidebar');
-//       if (temp_sidebar) {
-//         if (temp_sidebar.classList.contains('mob-sidebar-active')) {
-//           rm_menu(); // Close menu if already active
-//         } else {
-//           temp_sidebar.classList.add('mob-sidebar-active');
-
-//           // Only add the overlay if it doesn't already exist
-//           if (!document.querySelector('.pc-menu-overlay')) {
-//             temp_sidebar.insertAdjacentHTML('beforeend', '<div class="pc-menu-overlay"></div>');
-
-//             // Add event listener to remove the menu when overlay is clicked
-//             document.querySelector('.pc-menu-overlay').addEventListener('click', function () {
-//               rm_menu();
-//             });
-//           }
-//         }
-//       }
-//     });
-//   }
-//   // Menu collapse click end
-
-//   // Menu collapse click start
-//   var topbar_link_list = document.querySelectorAll('.pc-horizontal .topbar .pc-navbar > li > a');
-//   if (topbar_link_list.length) {
-//     topbar_link_list.forEach((link) => {
-//       link.addEventListener('click', function (e) {
-//         var targetElement = e.target;
-//         setTimeout(function () {
-//           var secondChild = targetElement.parentNode.children[1];
-//           if (secondChild) {
-//             secondChild.removeAttribute('style');
-//           }
-//         }, 1000);
-//       });
-//     });
-//   }
-//   // Menu collapse click end
-//   // Horizontal menu click js start
-//   var topbar_link_list = document.querySelectorAll('.pc-horizontal .topbar .pc-navbar > li > a');
-//   if (topbar_link_list) {
-//     topbar_link_list.forEach((link) => {
-//       link.addEventListener('click', function (e) {
-//         var targetElement = e.target;
-//         setTimeout(function () {
-//           targetElement.parentNode.children[1].removeAttribute('style');
-//         }, 1000);
-//       });
-//     });
-//   }
-//   // Horizontal menu click js end
-
-//   // header dropdown scrollbar start
-//   function initializeSimpleBar(selector) {
-//     const element = document.querySelector(selector);
-//     if (element) {
-//       new SimpleBar(element);
-//     }
-//   }
-//   // Initialize SimpleBar for message notification scroll
-//   initializeSimpleBar('.profile-notification-scroll');
-//   // Initialize SimpleBar for header notification scroll
-//   initializeSimpleBar('.header-notification-scroll');
-//   // header dropdown scrollbar end
-
-//   // component scrollbar start
-//   const cardBody = document.querySelector('.component-list-card .card-body');
-//   if (cardBody) {
-//     new SimpleBar(cardBody);
-//   }
-//   // component- dropdown scrollbar end
-
-//   // sidebar toggle event
-//   const sidebarHideBtn = document.querySelector('#sidebar-hide');
-//   console.log(sidebarHideBtn);
+var feather = '0';
+document.addEventListener('DOMContentLoaded', function () {
+  // console.log('d');
   
-//   const sidebar = document.querySelector('.pc-sidebar');
+  // feather icon start
+  feather.replace();
+  // feather icon end
 
-//   if (sidebarHideBtn && sidebar) {
-//     sidebarHideBtn.addEventListener('click', () => {
-//       sidebar.classList.toggle('pc-sidebar-hide');
-//     });
-//   }
+  // remove pre-loader start
+  setTimeout(function () {
+    var loaderBg = document.querySelector('.loader-bg');
+    if (loaderBg) {
+      loaderBg.remove();
+    }
+  }, 400);
 
-//   // search dropdown trigger event
-//   const searchDrp = document.querySelector('.trig-drp-search');
-//   if (searchDrp) {
-//     searchDrp.addEventListener('shown.bs.dropdown', () => {
-//       const searchInput = document.querySelector('.drp-search input');
-//       if (searchInput) {
-//         searchInput.focus();
-//       }
-//     });
-//   }
-// });
+  // remove pre-loader end
+  if (document.body.hasAttribute('data-pc-layout') && document.body.getAttribute('data-pc-layout') === 'horizontal') {
+    if (window.innerWidth <= 1024) {
+      add_scroller();
+    }
+  } else {
+    add_scroller();
+  }
+
+  var hamburger = document.querySelector('.hamburger');
+  if (hamburger && !hamburger.classList.contains('is-active')) {
+    hamburger.addEventListener('click', function () {
+      // Toggle the 'is-active' class
+      hamburger.classList.toggle('is-active');
+    });
+  }
+
+  // Menu overlay layout start
+  var temp_overlay_menu = document.querySelector('#overlay-menu');
+  if (temp_overlay_menu) {
+    temp_overlay_menu.addEventListener('click', function () {
+      var pcSidebar = document.querySelector('.pc-sidebar');
+      menu_click(); // Assuming this initializes any menu interactions needed
+
+      if (pcSidebar.classList.contains('pc-over-menu-active')) {
+        remove_overlay_menu();
+      } else {
+        pcSidebar.classList.add('pc-over-menu-active');
+
+        // Check if overlay already exists before adding
+        if (!document.querySelector('.pc-menu-overlay')) {
+          pcSidebar.insertAdjacentHTML('beforeend', '<div class="pc-menu-overlay"></div>');
+
+          // Add event listener to the overlay for removing menu and overlay on click
+          document.querySelector('.pc-menu-overlay').addEventListener('click', function () {
+            remove_overlay_menu();
+            document.querySelector('.hamburger').classList.remove('is-active'); // Ensuring hamburger is deactivated
+          });
+        }
+      }
+    });
+  }
+  // Menu overlay layout end
+
+
+
+
+
+  // Menu collapse click start
+  var mobile_collapse_over = document.querySelector('#mobile-collapse');
+  if (mobile_collapse_over) {
+    mobile_collapse_over.addEventListener('click', function () {
+      var temp_sidebar = document.querySelector('.pc-sidebar');
+      if (temp_sidebar) {
+        if (temp_sidebar.classList.contains('mob-sidebar-active')) {
+          rm_menu(); // Close menu if already active
+        } else {
+          temp_sidebar.classList.add('mob-sidebar-active');
+
+          // Only add the overlay if it doesn't already exist
+          if (!document.querySelector('.pc-menu-overlay')) {
+            temp_sidebar.insertAdjacentHTML('beforeend', '<div class="pc-menu-overlay"></div>');
+
+            // Add event listener to remove the menu when overlay is clicked
+            document.querySelector('.pc-menu-overlay').addEventListener('click', function () {
+              rm_menu();
+            });
+          }
+        }
+      }
+    });
+  }
+  // Menu collapse click end
+
+  // Menu collapse click start
+  var topbar_link_list = document.querySelectorAll('.pc-horizontal .topbar .pc-navbar > li > a');
+  if (topbar_link_list.length) {
+    topbar_link_list.forEach((link) => {
+      link.addEventListener('click', function (e) {
+        var targetElement = e.target;
+        setTimeout(function () {
+          var secondChild = targetElement.parentNode.children[1];
+          if (secondChild) {
+            secondChild.removeAttribute('style');
+          }
+        }, 1000);
+      });
+    });
+  }
+  // Menu collapse click end
+  // Horizontal menu click js start
+  var topbar_link_list = document.querySelectorAll('.pc-horizontal .topbar .pc-navbar > li > a');
+  if (topbar_link_list) {
+    topbar_link_list.forEach((link) => {
+      link.addEventListener('click', function (e) {
+        var targetElement = e.target;
+        setTimeout(function () {
+          targetElement.parentNode.children[1].removeAttribute('style');
+        }, 1000);
+      });
+    });
+  }
+  // Horizontal menu click js end
+
+  // header dropdown scrollbar start
+  // function initializeSimpleBar(selector) {
+  //   const element = document.querySelector(selector);
+  //   console.log(element);
+    
+  //   if (element) {
+  //     new SimpleBar(element);
+  //   }
+  // }
+
+  // Initialize SimpleBar for message notification scroll
+  // initializeSimpleBar('.profile-notification-scroll');
+  // Initialize SimpleBar for header notification scroll
+  // initializeSimpleBar('.header-notification-scroll');
+  // header dropdown scrollbar end
+
+  // component scrollbar start
+  // const cardBody = document.querySelector('.component-list-card .card-body');
+  // if (cardBody) {
+  //   new SimpleBar(cardBody);
+  // }
+  // component- dropdown scrollbar end
+
+  // sidebar toggle event
+  const sidebarHideBtn = document.querySelector('#sidebar-hide');
+ 
+  
+  const sidebar = document.querySelector('.pc-sidebar');
+
+  if (sidebarHideBtn && sidebar) {
+    sidebarHideBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('pc-sidebar-hide');
+    });
+  }
+
+  // search dropdown trigger event
+  const searchDrp = document.querySelector('.trig-drp-search');
+  if (searchDrp) {
+    searchDrp.addEventListener('shown.bs.dropdown', () => {
+      const searchInput = document.querySelector('.drp-search input');
+      if (searchInput) {
+        searchInput.focus();
+      }
+    });
+  }
+});
 
 // Menu click start
-// function add_scroller() {
-//   // Initialize menu click behavior
-//   menu_click();
+function add_scroller() {
+  // Initialize menu click behavior
+  menu_click();
 
-//   // Cache the navbar content element
-//   var navbarContent = document.querySelector('.navbar-content');
+  // Cache the navbar content element
+  var navbarContent = document.querySelector('.navbar-content');
 
-//   // Check if the navbar content exists and SimpleBar is not already initialized
-//   if (navbarContent && !navbarContent.SimpleBar) {
-//     new SimpleBar(navbarContent);
-//   }
-//   // Menu scrollbar end
-// }
+  // Check if the navbar content exists and SimpleBar is not already initialized
+  // if (navbarContent && !navbarContent.SimpleBar) {
+  //   new SimpleBar(navbarContent);
+  // }
+  // Menu scrollbar end
+}
 
 
 
 // Menu click start
 function menu_click() {
+  
   var vw = window.innerWidth;
   var menuItems = document.querySelectorAll('.pc-navbar li');
 
@@ -293,9 +299,12 @@ function menu_click() {
 
 // hide menu in mobile menu
 function rm_menu() {
+  
   // Cache the necessary elements
   var sidebar = document.querySelector('.pc-sidebar');
   var topbar = document.querySelector('.topbar');
+
+  
   var sidebarOverlay = document.querySelector('.pc-sidebar .pc-menu-overlay');
   var topbarOverlay = document.querySelector('.topbar .pc-menu-overlay');
 
@@ -381,8 +390,12 @@ for (var l = 0; l < elem.length; l++) {
 
 // like event
 var likeInputs = document.querySelectorAll('.prod-likes .form-check-input');
+
+
 likeInputs.forEach(function (likeInput) {
   likeInput.addEventListener('change', function (event) {
+ 
+    
     var parentElement = event.target.parentNode;
 
     if (event.target.checked) {

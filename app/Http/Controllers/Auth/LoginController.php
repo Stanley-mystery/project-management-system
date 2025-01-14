@@ -104,6 +104,7 @@ class LoginController extends Controller
     {
         $key = $this->throttleKey($request);
         RateLimiter::hit($key, 60);
+        // RateLimiter::hit($key, 120); 
     }
 
   
@@ -125,6 +126,7 @@ class LoginController extends Controller
     
         return redirect()->back()
                          ->withInput($request->only('email'))
-                         ->withErrors(['email' => 'Too many login attempts. Please try again in few minutes ' ]);
+                         ->withErrors(['email' => 'Too many login attempts. Please try again in few minutes ' ])
+                         ->with('locked', true);
     }
 }

@@ -35,7 +35,7 @@
                                 <a href="{{ route('password.request') }}"><h6 class="f-w-400 mb-0">Forgot Password?</h6></a>
                             </div>
                             <div class="d-grid mt-4">
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" class="btn btn-primary {{ session('locked') ? 'disabled' : '' }} ">Login</button>
                             </div>
                             <div class="saprator my-3">
                                 <span>Or continue with</span>
